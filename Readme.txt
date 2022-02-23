@@ -1,6 +1,1 @@
-Thanks for downloading this template!
-
-Template Name: Ninestars
-Template URL: https://bootstrapmade.com/ninestars-free-bootstrap-3-theme-for-creative/
-Author: BootstrapMade.com
-License: https://bootstrapmade.com/license/
+"Code Over Coffee Studios is a IT firm based in Goa. Here at COC Studios we develop amazing websites, android/iOS Apps. Our talented and hardworking team understands your requirements and provides you with market standard quality and functional products. Our services also include Web Designing and Development, Mobile App Development (Android/iOS), Software Development, Digital Marketing, Social Media Marketing, Graphic Designing, Branding, Online Paid Advertising."
