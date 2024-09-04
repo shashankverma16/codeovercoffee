@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Group Generator</title>
+    <title>Team Generator</title>
     <style>
         /* Basic styling for the page */
         body {
@@ -177,7 +177,7 @@
                 </div>
                 <div class="button-group" id="teamButtons" style="display: none;">
                     <button class="btn" onclick="regenerateGroups()">Regenerate</button>
-                    <button class="btn btn-success" onclick="shareGroups()">Share to WhatsApp</button>
+                    <button class="btn btn-success" onclick="shareGroups()">Share on WhatsApp</button>
                     <!-- <button class="btn btn-secondary" onclick="resetAll()">Reset</button> -->
                 </div>
             </div>
@@ -298,7 +298,7 @@
         }
 
         function shareGroups() {
-            const message = generatedGroups.map((group, index) => `Group ${index + 1}: ${group.join(', ')}`).join('\n');
+            const message = generatedGroups.map((group, index) => `Team ${index + 1}: ${group.join(', ')}`).join('\n');
             const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         }
