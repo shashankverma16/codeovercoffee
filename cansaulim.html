@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Website</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+  <style>
+    /* Add your custom styles here */
+
+body{
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+}
+    .hero-section {
+      padding: 60px 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .carousel img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .text-section {
+      padding: 20px;
+    }
+
+    .hidden {
+      display: none;
+      opacity: 0;
+    }
+
+    .hidden:not(.hero-section) {
+      opacity: 1;
+    }
+
+
+    
+
+/*    #faqs {
+  background-color: #f8f9fa; /* Light grey background */
+}*/
+
+.accordion-button {
+  background-color: #fff;
+  color: #333;
+  border: none;
+  box-shadow: none;
+  padding: 15px;
+}
+
+.accordion-button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.accordion-item {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.accordion-body {
+  padding: 15px;
+  font-size: 16px;
+}
+
+#button-download{
+  font-size: 14px;
+}
+
+  </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="50">
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">Cansaulim Panchayat</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#schemes">Schemes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#downloads">Downloads</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#faqs">FAQs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+ <div id="home" class="container-fluid hero-section">
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-5">
+      <!-- Carousel div -->
+      <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://content.jdmagicbox.com/comp/goa/c9/0832px832.x832.141218150125.s1c9/catalogue/cansaulim-beach-cansaulim-goa-tourist-attraction-pfgon8.jpg" class="d-block w-100" alt="Image 1">
+          </div>
+          <div class="carousel-item">
+            <img src="https://content.jdmagicbox.com/comp/goa/c9/0832px832.x832.141218150125.s1c9/catalogue/cansaulim-beach-cansaulim-goa-tourist-attraction-pfgon8.jpg" class="d-block w-100" alt="Image 2">
+          </div>
+          <!-- Add more carousel items as needed -->
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <div class="col-lg-5 text-section text-justify">
+      <!-- Text div -->
+      <h1>Cansaulim Panchayat</h1>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    </div>
+    <div class="col-lg-1"></div>
+  </div>
+</div>
+
+
+  <!-- Other sections -->
+  <div id="about" class="container-fluid hero-section hidden">
+    <!-- <div class="row">
+       <div class="col-lg-1">
+         
+       </div>
+      <div class="col-lg-10 text-section text-justify">
+        <h2>About us</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac turpis in orci varius finibus. Sed eget vestibulum elit. Nullam tristique quam et metus posuere, vel finibus turpis tristique.</p>
+      </div>
+       <div class="col-lg-1">
+         
+       </div>
+    </div> -->
+
+      <div class="container-fluid mt-5">
+    <h2 class="text-center mb-4">Panch Members</h2> <br>
+
+    <div class="row">
+      <!-- Employee 1 -->
+      <div class="col-md-3 mb-4 text-center ">
+        <img src="https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png" width="80" height="80" alt="Employee 1" class="img-fluid rounded-circle">
+        <p class="text-center mt-2">JOSE MARIA <br> JOAQUIM FURTADO <br> (WARD NO.I)</p>
+      </div>
+
+      <!-- Employee 2 -->
+      <div class="col-md-3 mb-4 text-center ">
+        <img src="https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png" width="80" height="80" alt="Employee 2" class="img-fluid rounded-circle">
+        <p class="text-center mt-2">XAVIER TOLENTINO <br> PEREIRA <br> (WARD NO.II)
+</p>
+      </div>
+
+      <!-- Employee 3 -->
+      <div class="col-md-3 mb-4 text-center ">
+        <img src="https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png" width="80" height="80" alt="Employee 3" class="img-fluid rounded-circle">
+        <p class="text-center mt-2">LARSON FRANCISCO <br> FILOMENO SALDANHA <br> (WARD NO.III)</p>
+      </div>
+
+      <!-- Employee 4 -->
+      <div class="col-md-3 mb-4 text-center ">
+        <img src="https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png" width="80" height="80" alt="Employee 4" class="img-fluid rounded-circle">
+        <p class="text-center mt-2">ARLINDA BOA <br> MORTE ALMEIDA <br> (WARD NO.IV)</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Repeat the same structure for the next set of employees -->
+      <!-- Employee 5 -->
+      <div class="col-md-3 mb-4 text-center ">
+        <img src="https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png" width="80" height="80" alt="Employee 5" class="img-fluid rounded-circle">
+        <p class="text-center mt-2">MERVILLA LEENAT <br> KINGSLEY CYRIL <br> FERNANDES DA COSTA <br> (WARD NO.V)
+
+</p>
+      </div>
+
+      <!-- Employee 6 -->
+      <div class="col-md-3 mb-4 text-center ">
+        <img src="https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png" width="80" height="80" alt="Employee 6" class="img-fluid rounded-circle">
+        <p class="text-center mt-2">MACKLINA XAVIER <br> CARDOZO RODRIGUES <br> (WARD NO.VI)</p>
+      </div>
+
+      <!-- Employee 7 -->
+      <div class="col-md-3 mb-4 text-center ">
+        <img src="https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png" width="80" height="80" alt="Employee 7" class="img-fluid rounded-circle">
+        <p class="text-center mt-2">JESSICA MELITA PASCOAL <br> PEREIRA D'SILVA <br> (WARD NO.VII)</p>
+      </div>
+
+      <!-- Employee 8 -->
+      <div class="col-md-3 mb-4 text-center">
+        <img src="https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png" width="80" height="80" alt="Employee 8" class="img-fluid rounded-circle">
+        <p class="mt-2">MARIA DO CARMO <br> IZABELINHA JUSICO <br> FERNANDES <br> (WARD NO.VIII)</p>
+      </div>
+
+      <!-- Employee 9 -->
+      <div class="col-md-3 mb-4 text-center">
+        <img src="https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png" width="80" height="80" alt="Employee 8" class="img-fluid rounded-circle">
+        <p class="mt-2">DEVANAND LAXMAN <br> NAIK <br> (WARD NO.IX)</p>
+      </div>
+    </div>
+
+    <!-- Add more rows as needed -->
+  </div>
+  </div>
+
+  <!-- Other sections -->
+  <div id="services" class="container-fluid hero-section hidden">
+    <div class="container-fluid mt-5">
+    <h2 class="text-center mb-4">Our Services</h2> <br>
+
+    <div class="row">
+      <!-- Service 1 -->
+      <div class="col-md-1"></div>
+      <div class="col-md-5 mb-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">Trade Licence & Signboard</h5>
+            <p class="card-text">Description of Service.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="col-md-5 mb-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">Construction Licence</h5>
+            <p class="card-text">Description of Service.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+
+      <!-- Service 3 -->
+      <div class="col-md-1"></div>
+      <div class="col-md-5 mb-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">Occupancy Certificate</h5>
+            <p class="card-text">Description of Service.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="col-md-5 mb-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">Online Services</h5>
+            <p class="card-text">Description of Service.</p>
+          </div>
+        </div>
+      </div>
+   <div class="col-md-1"></div>
+
+         <!-- Service 5 -->
+         <div class="col-md-1"></div>
+      <div class="col-md-5 mb-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">Birth & Death Certificate</h5>
+            <p class="card-text">Description of Service.</p>
+          </div>
+        </div>
+      </div>
+
+         <!-- Service 6 -->
+      <div class="col-md-5 mb-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">Pay House Tax</h5>
+            <p class="card-text">Description of Service.</p>
+          </div>
+        </div>
+      </div>
+   <div class="col-md-1"></div>
+
+          <!-- Service 7 -->
+          <div class="col-md-1"></div>
+      <div class="col-md-5 mb-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">Pay Trade & Signboard Fee</h5>
+            <p class="card-text">Description of Service.</p>
+          </div>
+        </div>
+      </div>
+
+          <!-- Service 8 -->
+      <div class="col-md-5 mb-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">Verify Birth & Death Certificate</h5>
+            <p class="card-text">Description of Service.</p>
+          </div>
+        </div>
+      </div>
+   <div class="col-md-1"></div>
+           <!-- Service 9 -->
+           <div class="col-md-1"></div>
+      <div class="col-md-5 mb-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">House Tax Search</h5>
+            <p class="card-text">Description of Service.</p>
+          </div>
+        </div>
+      </div>
+
+           <!-- Service 10 -->
+      <div class="col-md-5 mb-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">Income Certificate</h5>
+            <p class="card-text">Description of Service.</p>
+          </div>
+        </div>
+      </div>
+   <div class="col-md-1"></div>
+              <!-- Service 11 -->
+              <div class="col-md-1"></div>
+      <div class="col-md-5 mb-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">Residence Certificate</h5>
+            <p class="card-text">Description of Service.</p>
+          </div>
+        </div>
+      </div>
+
+              <!-- Service 12 -->
+      <div class="col-md-5 mb-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">House Tax Registry</h5>
+            <p class="card-text">Description of Service.</p>
+          </div>
+        </div>
+      </div>
+   <div class="col-md-1"></div>
+                <!-- Service 13 -->
+                <div class="col-md-1"></div>
+      <div class="col-md-5 mb-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">Noc for Water</h5>
+            <p class="card-text">Description of Service.</p>
+          </div>
+        </div>
+      </div>
+
+                <!-- Service 14 -->
+      <div class="col-md-5 mb-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">Noc for Electricity </h5>
+            <p class="card-text">Description of Service.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-1"></div>
+    </div>
+
+  </div>
+  </div>
+
+  <div id="schemes" class="container-fluid hero-section hidden">
+     <div class="container-fluid mt-5">
+    <h2 class="text-center mb-4">Our Schemes</h2> <br>
+
+    <div class="row">
+      <!-- Schemes 1 -->
+      <div class="col-md-1"></div>
+      <div class="col-md-5 mb-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">Schemes 1</h5>
+            <p class="card-text">Description of Schemes 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+          <a class="read text-center" href="#">Read more</a>
+        </div>
+      </div>
+
+      <!-- Schemes 2 -->
+      <div class="col-md-5 mb-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">Schemes 2</h5>
+            <p class="card-text">Description of Schemes 2. Sed ac turpis in orci varius finibus. Sed eget  elit.</p>
+          </div>
+           <a class="read text-center" href="#">Read more</a>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+      <!-- Schemes 3 -->
+      <div class="col-md-1"></div>
+      <div class="col-md-5 mb-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">Schemes 3</h5>
+            <p class="card-text">Description of Schemes 3. Nullam tristique quam et metus posuere, vel finibus</p>
+          </div>
+          <a class="read text-center" href="#">Read more</a>
+        </div>
+
+      </div>
+
+      <!-- Schemes 4 -->
+      <div class="col-md-5 mb-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">Schemes 4</h5>
+            <p class="card-text">Description of Schemes 4. Vivamus sed sem ac dui ultricies eleifend et ut libero.</p>
+          </div>
+          <a class="read text-center" href="#">Read more</a>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+
+  </div>
+  </div>
+
+  <div id="downloads" class="container-fluid hero-section hidden">
+   <div class="container-fluid mt-5">
+    <h2 class="text-center mb-4">Downloads</h2>
+    <div class="row">
+ <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <ul class="list-group">
+      <!-- PDF File 1 -->
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+       Residence Certificate form
+        <a href="path/to/pdf_file_1.pdf" download class="btn btn-success" id = "button-download">Download Form</a>
+      </li>
+
+      <!-- PDF File 2 -->
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        House Tax Registry form
+        <a href="path/to/pdf_file_2.pdf" download class="btn btn-success" id = "button-download">Download Form</a>
+      </li>
+
+          <!-- PDF File 3 -->
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        Noc for Water form
+        <a href="path/to/pdf_file_1.pdf" download class="btn btn-success" id = "button-download">Download Form</a>
+      </li>
+
+      <!-- PDF File 4 -->
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        Pay Trade & Signboard Fee form
+        <a href="path/to/pdf_file_2.pdf" download class="btn btn-success" id = "button-download">Download Form</a>
+      </li>
+
+      <!-- Add more PDF files as needed -->
+
+    </ul>
+    </div>
+ <div class="col-md-1"></div>
+</div>
+  </div>
+  </div>
+
+ <!-- FAQ Section -->
+<div id="faqs" class="container-fluid hero-section hidden py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10 col-12">
+      <div class="text-center mb-4">
+        <h2 class="fw-bold">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="accordion" id="accordionFAQ">
+
+        <!-- FAQ Item 1 -->
+        <div class="accordion-item border-0 shadow-sm mb-3 rounded">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Question 1
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionFAQ">
+            <div class="accordion-body">
+              Answer to question 1.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="accordion-item border-0 shadow-sm mb-3 rounded">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Question 2
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionFAQ">
+            <div class="accordion-body">
+              Answer to question 2.
+            </div>
+          </div>
+        </div>
+
+            <!-- FAQ Item 3 -->
+        <div class="accordion-item border-0 shadow-sm mb-3 rounded">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Question 3
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionFAQ">
+            <div class="accordion-body">
+              Answer to question 3.
+            </div>
+          </div>
+        </div>
+
+            <!-- FAQ Item 4 -->
+        <div class="accordion-item border-0 shadow-sm mb-3 rounded">
+          <h2 class="accordion-header" id="headingFour">
+            <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              Question 4
+            </button>
+          </h2>
+          <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionFAQ">
+            <div class="accordion-body">
+              Answer to question 4.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div id="contact" class="container-fluid hero-section hidden">
+    <!-- <div class="row">
+       <div class="col-lg-1">
+         
+       </div>
+      <div class="col-lg-10 text-section text-justify">
+        <h2>Contact Us</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac turpis in orci varius finibus. Sed eget vestibulum elit. Nullam tristique quam et metus posuere, vel finibus turpis tristique.</p>
+      </div>
+       <div class="col-lg-1">
+         
+       </div>
+    </div> -->
+    <div class="container mt-5">
+    <div class="row">
+<div class="col-lg-1">
+         
+       </div>
+      <!-- Map Section -->
+      <div class="col-md-5">
+        <!-- Replace the iframe src with your own Google Maps embed code -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3000.904790822882!2d73.8978946!3d15.345545399999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfb7f9ed9911d1%3A0x16726027f640e15e!2sVillage%20Panchayat%20of%20Cansaulim%20%2F%20Arossim%20%2F%20Cuelim!5e1!3m2!1sen!2sin!4v1740497080872!5m2!1sen!2sin" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+
+      </div>
+
+      <!-- Email Section -->
+      <div class="col-md-5 mt-3 mt-md-0">
+        <div class="text-center">
+          <h2>Contact Us</h2>
+          <p>Feel free to reach out to us for any inquiries.</p>
+
+          <!-- Button to open new email compose box -->
+          <a href="mailto:info@example.com" class="btn btn-primary">Send Email</a>
+        </div>
+      </div>
+      <div class="col-lg-1">
+         
+       </div>
+
+    </div>
+  </div>
+  </div>
+
+  <!-- Add this before your closing </body> tag -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+  <script>
+    $(document).ready(function() {
+      // Smooth scrolling for anchor links
+      $('a[href^="#"]').on('click', function(event) {
+        var target = $(this.getAttribute('href'));
+        if (target.length) {
+          event.preventDefault();
+          $('html, body').stop().animate({
+            scrollTop: target.offset().top
+          }, 1000);
+        }
+      });
+
+      // Show/hide sections based on menu click
+      $('.navbar-nav a').on('click', function() {
+        var targetSectionId = $(this).attr('href');
+        console.log('Target Section ID:', targetSectionId);
+
+        // Hide all sections
+        $('.hero-section').addClass('hidden');
+
+        // Show the target section
+        $(targetSectionId).removeClass('hidden');
+        console.log('Showing Section:', targetSectionId);
+      });
+    });
+  </script>
+</body>
+</html>
