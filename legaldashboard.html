@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Legal Assistant Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <style>
+    body {
+      font-family: "Karla", sans-serif;
+      font-optical-sizing: auto;
+      font-style: normal;
+      background: #eef1f5;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 25px;
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    .chart-section {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+      font-family: "Karla", sans-serif;
+    }
+
+    canvas {
+      max-width: 300px;
+      max-height: 300px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 15px;
+      margin-top: 10px;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f8f9fa;
+      font-weight: 600;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    .overdue {
+      background-color: #ffe6e6 !important;
+      font-weight: bold;
+      color: #b30000;
+    }
+
+    #loader {
+      display: none;
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 14px;
+      background: #ffffffcc;
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      color: #555;
+    }
+
+    #download-btn {
+      position: absolute;
+      top: 20px;
+      left: 30px;
+      background: #4e79a7;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+
+      .container {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      canvas {
+        max-width: 100%;
+      }
+
+      table {
+        font-size: 13px;
+      }
+
+      #download-btn {
+        font-size: 12px;
+        padding: 6px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Legal Assistant Workload Dashboard</h2>
+    <div id="loader" style="font-family: Karla, sans-serif;">Refreshing...</div>
+    <!-- <button id="download-btn" onclick="downloadPage()">📄 Download as PDF</button> -->
+    <button id="download-btn" style="font-family: Karla, sans-serif;" onclick="downloadPage()">Download as PDF</button>
+    <div class="chart-section">
+      <canvas style="font-family: Karla, sans-serif;" id="pieChart"></canvas>
+    </div>
+    <table id="data-table"></table>
+  </div>
+
+  <script>
+    const sheetUrl = 'https://opensheet.elk.sh/1qXGbO8fsRqaZzrsLSYYuNcMsjVGW305pfp9DAyBL1QE/Sheet1';
+    let chart = null;
+    let firstLoad = true;
+
+    function calculateDays(dateStr) {
+      const assignedDate = new Date(dateStr);
+      const today = new Date();
+      const diffTime = today - assignedDate;
+      return Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    }
+
+    function showLoader(show) {
+      document.getElementById('loader').style.display = show ? 'block' : 'none';
+    }
+
+    function loadData() {
+      if (!firstLoad) showLoader(true);
+
+      fetch(sheetUrl)
+        .then(res => res.json())
+        .then(data => {
+          const pieData = {};
+          const table = document.getElementById('data-table');
+          table.innerHTML = '';
+
+          // Build header
+          const header = document.createElement('tr');
+          ['File Name', 'Assigned To', 'Assigned Date', 'Days With Assistant', 'Status', 'Completed in'].forEach(text => {
+            const th = document.createElement('th');
+            th.textContent = text;
+            header.appendChild(th);
+          });
+          table.appendChild(header);
+
+          // Build table body
+          data.forEach(row => {
+            const tr = document.createElement('tr');
+            const assignedDate = row["Assigned Date"];
+            const status = row["Status"];
+            const daysWith = calculateDays(assignedDate);
+            const completedIn = status.toLowerCase() === 'completed' ? `${daysWith} day(s)` : '-';
+
+            if (daysWith > 5 && status.toLowerCase() !== 'completed') {
+              tr.classList.add('overdue');
+            }
+
+            const rowData = [
+              row["File Name"],
+              row["Assigned To"],
+              assignedDate,
+              `${daysWith} day(s)`,
+              status,
+              completedIn
+            ];
+
+            rowData.forEach(val => {
+              const td = document.createElement('td');
+              td.textContent = val;
+              tr.appendChild(td);
+            });
+
+            table.appendChild(tr);
+
+            const name = row["Assigned To"];
+            pieData[name] = (pieData[name] || 0) + 1;
+          });
+
+          // Update or create chart
+          const ctx = document.getElementById('pieChart').getContext('2d');
+          if (chart) {
+            chart.data.labels = Object.keys(pieData);
+            chart.data.datasets[0].data = Object.values(pieData);
+            chart.update();
+          } else {
+            chart = new Chart(ctx, {
+              type: 'pie',
+              data: {
+                labels: Object.keys(pieData),
+                datasets: [{
+                  label: 'Files Assigned',
+                  data: Object.values(pieData),
+                  backgroundColor: ['#4e79a7', '#f28e2b', '#e15759', '#76b7b2'],
+                  borderColor: '#fff',
+                  borderWidth: 2
+                }]
+              },
+              options: {
+                responsive: true,
+                plugins: {
+                  legend: {
+                    position: 'bottom',
+                    labels: {
+                      font: {
+                        size: 14
+                      },
+                      color: '#333'
+                    }
+                  }
+                }
+              }
+            });
+          }
+
+          showLoader(false);
+          firstLoad = false;
+        })
+        .catch(err => {
+          console.error('Error loading data:', err);
+          showLoader(false);
+        });
+    }
+
+    function downloadPage() {
+      const element = document.querySelector('.container');
+      const opt = {
+        margin: 0.5,
+        filename: 'Legal-Assistant-Dashboard.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
+      html2pdf().set(opt).from(element).save();
+    }
+
+    loadData();
+    setInterval(loadData, 15000);
+  </script>
+</body>
+</html>
